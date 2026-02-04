@@ -58,7 +58,7 @@ export default function Home() {
   }, [stopAnimation]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-6">
+    <div className="h-screen flex items-center justify-center bg-white px-6">
       <div className="w-full max-w-lg flex flex-col gap-4">
         <input
           type="text"
