@@ -57,6 +57,18 @@ export default function Home() {
     }, SPIN_INTERVAL_MS);
   }, [stopAnimation]);
 
+  const handleCall = useCallback(async () => {
+    stopAnimation();
+
+    try {
+      const response = await fetch("/api/call");
+      const data = await response.json();
+      setDisplayed(data);
+    } catch (error) {
+      console.error("Failed to fetch from API:", error);
+    }
+  }, [stopAnimation]);
+
   return (
     <div className="h-screen flex items-center justify-center bg-white px-6">
       <div className="w-full max-w-lg flex flex-col gap-4">
@@ -72,6 +84,12 @@ export default function Home() {
           className="w-full rounded-full bg-black text-white px-6 py-4 text-lg font-medium hover:bg-gray-800 transition-colors"
         >
           Generate
+        </button>
+        <button
+          onClick={handleCall}
+          className="w-full rounded-full bg-black text-white px-6 py-4 text-lg font-medium hover:bg-gray-800 transition-colors"
+        >
+          Call
         </button>
       </div>
     </div>
