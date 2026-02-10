@@ -73,6 +73,11 @@ export default function Home() {
         >
           Generate
         </button>
+        <button
+          className="w-full rounded-full bg-black text-white px-6 py-4 text-lg font-medium hover:bg-gray-800 transition-colors"
+        >
+          Call
+        </button>
       </div>
     </div>
   );
